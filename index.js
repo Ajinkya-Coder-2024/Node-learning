@@ -47,16 +47,30 @@
 // fs.unlinkSync(`${dirpath}/fruit.txt`);
 // console.log("Deleted successfully");
 
-let a = 20;
-let b = 0;
+// let a = 20;
+// let b = 0;
 
-let waitingData = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve(30);
-  }, 2000);
+// let waitingData = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(30);
+//   }, 2000);
+// });
+
+// waitingData.then((data) => {
+//   b = data;
+//   console.log(a + b);
+// });
+
+//Express
+const express = require("express");
+const app = express();
+
+app.get("", (req, res) => {
+  res.send("Hellow,this is Home page");
 });
 
-waitingData.then((data) => {
-  b = data;
-  console.log(a + b);
+app.get("/about", (req, res) => {
+  res.send("Hellow,This is the About page");
 });
+
+app.listen(5000);
